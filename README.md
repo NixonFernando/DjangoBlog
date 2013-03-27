@@ -1,5 +1,4 @@
 ==Requerimientos==
 * Django 1.5
 * taggit
-* django-file-picker
-* PIL
+* django-cked
