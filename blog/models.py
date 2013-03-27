@@ -4,11 +4,12 @@ from taggit.managers import TaggableManager
 
 class Post(models.Model):
     """docstring for Post"""
-    title = models.CharField(max_length=100)
-    perex = models.TextField()
-    body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
+    titulo = models.CharField(max_length=100)
+    subtitulo = models.CharField(max_length=100)
+    sumario = models.TextField(max_length=400)
+    cuerpo = models.TextField(max_length=400)
+    fecha = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
 
     def __unicode__(self):
-        return self.title
+        return self.titulo

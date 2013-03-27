@@ -10,20 +10,20 @@ class BlogFeed(Feed):
     link = "/blog/feed/"
 
     def items(self):
-        return Post.objects.all().order_by("-created")[:10]
+        return Post.objects.all().order_by("-fecha")[:10]
 
     def item_title(self, item):
-        return item.title
+        return item.titulo
 
     def item_description(self, item):
-        return item.body
+        return item.sumario
 
     def item_link(self, item):
         return u"/blog/%d" % item.id
 
 urlpatterns = patterns('blog.views',
                        url(r'^$',
-                           ListView.as_view(queryset=Post.objects.all().order_by("-created")[:2],
+                           ListView.as_view(queryset=Post.objects.all().order_by("-fecha")[:2],
                                             template_name="blog.html")
                            ),
                        url(r'^(?P<pk>\d+)$',
@@ -31,7 +31,7 @@ urlpatterns = patterns('blog.views',
                                               template_name="post.html")
                            ),
                        url(r'^archives/$',
-                           ListView.as_view(queryset=Post.objects.all().order_by("-created"),
+                           ListView.as_view(queryset=Post.objects.all().order_by("-fecha"),
                                             template_name="archives.html")
                            ),
                        url(r'^tag/(?P<tag>\w+)$', 'tagpage'),
