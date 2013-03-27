@@ -2,11 +2,16 @@
 
 {% block content %}
 <h2>{{ post.title }}</h2>
+<h3>{{ post.subtitle }}</h3>
 <div class="post_meta">
-    Creado: {{post.created}}
+    Creado: {{post.fecha}}
 </div>
 <div class="post_body">
-    {{post.body|safe|linebreaks}}
+    {{post.sumario|safe}}
+    {{post.cuerpo|safe}}
+</div>
+<div class="fecha">
+    {{post.fecha|safe}}
 </div>
 <div class="tags">
     {% for tag in post.tags.all %}
