@@ -112,12 +112,6 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(os.path.dirname(__file__)), 'templates'),
 )
 
-ELFINDER_OPTIONS = {
-    ## required options
-    'root': os.path.join(os.path.dirname(os.path.dirname(__file__)), 'media', 'uploads'),
-    'URL': 'media/uploads/',
-}
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,7 +122,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'taggit',
     'blog',
-    'cked',
 )
 
 # A sample logging configuration. The only tangible logging
